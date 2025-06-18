@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
   struct timeval timeout;
   char buf[BUF_SIZE];
 
-  FD_ZERO(&fdSet);                 // fdSet 置 0, 不监听所有的文件描述符
+  FD_ZERO(&fdSet);  // fdSet 置 0, 不监听所有的文件描述符
   FD_SET(serverSocketFd, &fdSet);  //* 监听 serverSocketFd
   int numFd = serverSocketFd + 1;
 
@@ -51,8 +51,8 @@ int main(int argc, char *argv[]) {
     timeout.tv_sec = 5;      // 秒
     timeout.tv_usec = 5000;  // 毫秒
 
-    int numReady =       //! numReady - IO 就绪 fd 数量
-        select(numFd,    //! numFd       - fd_set 的最大 fd 值 +1 (fd 的数量)
+    int numReady =     //! numReady - IO 就绪 fd 数量
+        select(numFd,  //! numFd       - fd_set 的最大 fd 值 +1 (fd 的数量)
                &backup,  //! readFdSet - &fd_set 监听是否可读, NULL 表示不监听
                NULL,  //! writeFdSet   - &fd_set 监听是否可写, NULL 表示不监听
                NULL,  //! exceptFdSet  - &fd_set 监听有无异常, NULL 表示不监听

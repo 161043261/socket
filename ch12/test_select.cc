@@ -33,8 +33,8 @@ int main() {
     timeout.tv_usec = 0;  // 毫秒
     int numReady =        //! numReady - IO 就绪的 fd 数量
         select(1,         //! numFd - fd_set 的最大 fd 值 +1
-               &backup,   //! readFdSet - &fd_set 监听是否可读, NULL 表示不监听
-               NULL,      //! writeFdSet - &fd_set 监听是否可写, NULL 表示不监听
+               &backup,  //! readFdSet - &fd_set 监听是否可读, NULL 表示不监听
+               NULL,  //! writeFdSet - &fd_set 监听是否可写, NULL 表示不监听
                NULL,  //! exceptFdSet - &fd_set 监听有无异常, NULL 表示不监听
                &timeout);  //! timeout 超时
     if (numReady == -1) {  //! 有异常返回 -1
