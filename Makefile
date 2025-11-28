@@ -63,7 +63,6 @@ clean: ## Remove ./build
 
 .PHONY: build
 build: clean ## Build project
-	@echo "Make clang++ build files"
 	cmake -S ./ -B ./build
 	cmake --build ./build
 
